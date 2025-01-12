@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your job applications and search for computer science jobs in one place.">
+    <meta name="keywords" content="job tracker, computer science jobs, job applications">
+
     <title>Job Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+    <!-- Header -->
+    <header><h1> Job Tracker </h1></header>
     <!-- Nav Bar -->
-    <nav>
-        <ul>
-            <li><a> href="/">Home<</a></li>
-            <li><a> href="/jobs">Jobs<</a></li>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="/jobs">Jobs</a></li>
         </ul>
     </nav>
         <!-- Content -->

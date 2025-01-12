@@ -1,6 +1,6 @@
+#Database Work
 from flask_sqlalchemy import SQLAlchemy
 #configuration settings
-
 db = SQLAlchemy()
 
 
