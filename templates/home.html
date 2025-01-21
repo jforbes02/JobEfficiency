@@ -1,7 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
-    <li><a> href="/jobs">Jobs<</a></li>
-    <li><a> href="/track">track<</a></li>
-
-
+    <body>
+        <h2>Hello User! Here Is Your Job Results so Far!</h2>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Company</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+        {% for job in jobs %}
+    <tr>
+        <td>{{ job.id }}</td>
+        <td>{{ job.title }}</td>
+        <td>{{ job.company }}</td>
+        <td>{{ job.status }}</td>
+    </tr>
+    {% endfor %}
+</table>
+    </body>
 {% endblock %}
