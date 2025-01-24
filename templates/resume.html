@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{%  block title %} Resume Page{% endblock %}
+{% block content %}
+	<h1>Welcome, user</h1>
+    <h2> - Your Resume -</h2>
+    {% if resume %}
+        <p>{{ resume.content }}</p>
+        <a href="/edit_resume"Edit Resume></a>
+    {% else %}
+        <p>No resume found. <a href="/edit_resume">Add one!</a></p>
+    {% endif %}
+    <br>
+    <a href="/logout">Logout</a>
+{% endblock %}

@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Progressed HTML. Made login page,trying to understand how multiple files work with html and extend concept of flask. Also some api changes">
-      <change afterPath="$PROJECT_DIR$/templates/registration.html" afterDir="false" />
+    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Progressed HTML and Login Functionality not finished Html works kind of still need to finish it up and cean it up. Login page looks good.">
+      <change afterPath="$PROJECT_DIR$/templates/edit_resume.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/resume.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/automation/resume.py" beforeDir="false" afterPath="$PROJECT_DIR$/automation/resume.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jobs/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/api.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/registration.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +112,7 @@
       <workItem from="1736704417798" duration="4812000" />
       <workItem from="1736712459221" duration="10000" />
       <workItem from="1737309868659" duration="1930000" />
-      <workItem from="1737312055388" duration="8110000" />
+      <workItem from="1737312055388" duration="18482000" />
     </task>
     <task id="LOCAL-00001" summary="Learning HTML and CSS... going bad lol! Python code is a bit wonky too.... working on the html more tmmrw">
       <option name="closed" value="true" />
@@ -131,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1736712261627</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Progressed HTML and Login Functionality not finished Html works kind of still need to finish it up and cean it up. Login page looks good.">
+      <option name="closed" value="true" />
+      <created>1737475066425</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737475066425</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,9 +158,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Learning HTML and CSS... going bad lol! Python code is a bit wonky too.... working on the html more tmmrw" />
     <MESSAGE value="Progressed HTML. Made login page,trying to understand how multiple files work with html and extend concept of flask. Also some api changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Progressed HTML. Made login page,trying to understand how multiple files work with html and extend concept of flask. Also some api changes" />
+    <MESSAGE value="Progressed HTML and Login Functionality not finished Html works kind of still need to finish it up and cean it up. Login page looks good." />
+    <option name="LAST_COMMIT_MESSAGE" value="Progressed HTML and Login Functionality not finished Html works kind of still need to finish it up and cean it up. Login page looks good." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1737474744447" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1737734845379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
