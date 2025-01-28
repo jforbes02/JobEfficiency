@@ -113,6 +113,8 @@ def upload_file():
         file.save(filepath)
         return redirect(url_for('display_pdf', filename=file.filename))
 
+with app.app_context():
+    db.create_all()
 
 if __name__ == '__main__':
     app.run(debug=True)
