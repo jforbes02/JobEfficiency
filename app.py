@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
-from flask_login import login_required, login_user, current_user
+from flask_login import login_required, login_user, current_user, logout_user, LoginManager
 from werkzeug.utils import send_from_directory
 
 from config import JobApplication, User, db, Config
@@ -11,10 +11,18 @@ app.config.from_object(Config)
 db.init_app(app)
 app.register_blueprint(job_bp)
 
+#uploads
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
+
+#Login
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+@app.context_processor
+
 @app.route('/jobs')
 def show_jobs():
     jobs = [
@@ -26,10 +34,15 @@ def show_jobs():
 @app.route('/')
 def home():  # put application's code here
     return render_template('home.html')
+@app.route('/profile')
+def profile():
+    return render_template("profile.html")
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 @app.route("/login", methods=["POST", "GET"])
 def login():
-
     if request.method == "POST":
         email = request.form['email']
         password = request.form['password']
@@ -43,22 +56,22 @@ def login():
             flash("Invalid email or password", "danger")
         return render_template("login.html")
     return render_template('login.html')
-@app.route("/user")
+
+@app.route("/user/<username>")
+@login_required
 def user():
-    if "user" in session:
-        return f"Welcome {session['user']}!"
-    return redirect(url_for("login.html"))
+    return f"Welcome {current_user.username}!"
 
 @app.route("/logout")
 @login_required
 def logout():
-    logout.user()
-    flash("You have been logged out.", "info")
-    return redirect("login.html")
+    logout_user()
+    flash("You have been logged out.")
+    return redirect(url_for("login"))
 
 @app.route("/registration", methods=['GET','POST'])
 def registration():
-    print(request.form)
+    #print(request.form)
     if request.method == "POST":
         username = request.form['username']
         email = request.form['email']
@@ -66,7 +79,7 @@ def registration():
 
         existing_user = User.query.filter((User.username == username) | (User.email == email)).first()
         if existing_user:
-            flash("Userame or email exists!", "danger")
+            flash("Username or email exists!", "danger")
             return redirect(url_for("registration"))
 
         new_user = User(username=username, email=email, password=password)
