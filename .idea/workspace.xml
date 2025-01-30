@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Now can submit pdf files but need to find a way to handle it once its submitted. Needs work on server side sql stuff. Made some tweaks to the databse in config.py and need to work on app and config connection">
-      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Working on login and registration. SQL databases are working. Registration works as well.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/profile.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +125,8 @@
       <workItem from="1736712459221" duration="10000" />
       <workItem from="1737309868659" duration="1930000" />
       <workItem from="1737312055388" duration="31762000" />
-      <workItem from="1738105858027" duration="7327000" />
+      <workItem from="1738105858027" duration="7375000" />
+      <workItem from="1738250082313" duration="2557000" />
     </task>
     <task id="LOCAL-00001" summary="Learning HTML and CSS... going bad lol! Python code is a bit wonky too.... working on the html more tmmrw">
       <option name="closed" value="true" />
@@ -177,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738102825880</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working on login and registration. SQL databases are working. Registration works as well.">
+      <option name="closed" value="true" />
+      <created>1738113972957</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1738113972957</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,9 +208,10 @@
     <MESSAGE value="Work on resume.html and edit_resume.html. Need to understand the concept of user accounts and how to make it so the user can work on the resume in the program" />
     <MESSAGE value="Now can submit pdf files but need to find a way to handle it once its submitted. Needs work on server side sql stuff. Made some tweaks to the databse in config.py and need to work on app and config connection" />
     <MESSAGE value="creates the databases!!! 2 lines made it work lol" />
-    <option name="LAST_COMMIT_MESSAGE" value="creates the databases!!! 2 lines made it work lol" />
+    <MESSAGE value="Working on login and registration. SQL databases are working. Registration works as well." />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on login and registration. SQL databases are working. Registration works as well." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1738113684849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1738260594566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

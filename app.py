@@ -21,7 +21,6 @@ if not os.path.exists(UPLOAD_FOLDER):
 login_manager = LoginManager()
 login_manager.init_app(app)
 
-@app.context_processor
 
 @app.route('/jobs')
 def show_jobs():
@@ -32,11 +31,8 @@ def show_jobs():
     return render_template('jobs.html', jobs=jobs)
 
 @app.route('/')
-def home():  # put application's code here
+def home():
     return render_template('home.html')
-@app.route('/profile')
-def profile():
-    return render_template("profile.html")
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -86,7 +82,7 @@ def registration():
         db.session.add(new_user)
         db.session.commit()
 
-        flash("Account created! login in.", "success")
+        flash("Account created! You can now log in.", "success")
         return render_template("login.html")
     return render_template("registration.html")
 
