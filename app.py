@@ -1,9 +1,9 @@
 import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, login_user, current_user, logout_user, LoginManager
-from werkzeug.utils import send_from_directory
+from werkzeug.utils import send_from_directory, secure_filename
 
-from config import JobApplication, User, db, Config
+from config import JobApplication, User, db, Config, Resume
 from jobs import job_bp
 app = Flask(__name__)
 app.secret_key="secret"
@@ -53,6 +53,7 @@ def login():
         return render_template("login.html")
     return render_template('login.html')
 
+#foundation for the future if I want to have profiles public
 @app.route("/user/<username>")
 @login_required
 def user():
@@ -87,6 +88,7 @@ def registration():
     return render_template("registration.html")
 
 @app.route("/resume")
+@login_required
 def resume():
     # Check if a resume file exists
     resume_file = os.listdir(app.config['UPLOAD_FOLDER'])
@@ -96,6 +98,7 @@ def resume():
 
 @app.route('/edit_resume', methods=['GET', 'POST'])
 def edit_resume():
+
     if request.method == 'POST':
         file = request.files['file']
         if file and file.filename.endswith('.pdf'):
@@ -104,11 +107,11 @@ def edit_resume():
             return redirect(url_for('resume'))
         else:
             return "Please upload a valid PDF file.", 400
-
     return render_template('edit_resume.html')
 
 
 @app.route('/upload', methods=['POST'])
+@login_required
 def upload_file():
     if 'file' not in request.files:
         return "No file part", 400
@@ -118,9 +121,22 @@ def upload_file():
         return "No selected file", 400
 
     if file:
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
+        filename = secure_filename(f"{current_user.id}_resume.pdf")
+        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
-        return redirect(url_for('display_pdf', filename=file.filename))
+
+        existing_resume = Resume.query.filter_by(user_id=current_user.id).first()
+        if existing_resume:
+            existing_resume.filepath=filepath
+        else:
+            new_resume = Resume(user_id=current_user.id, file_path=filepath)
+            db.session.add(new_resume)
+
+        db.session.commit()
+        flash("Success in resume upload", "success")
+        return redirect(url_for("resume"))
+
+    return render_template("edit_resume.html")
 
 with app.app_context():
     db.create_all()

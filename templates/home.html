@@ -1,7 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+    {% if not current_user.is_authenticated %}
     <body>
-        <h2>Hello user! Here Is Your Job Results so Far!</h2>
+    <h1>Hello! Let's help you with all your Job Searching Needs! </h1>
+    <p>First lets get you started!<b> <a href="/login">Login Here! </a></b></p>
+    </body>
+    {% endif %}
+    {% if current_user.is_authenticated %}
+    <body>
+        <h2>Hello {{current_user.username}}! Here Is Your Job Results so Far!</h2>
 <table>
     <thead>
         <tr>
@@ -21,4 +28,5 @@
     {% endfor %}
 </table>
     </body>
+    {% endif %}
 {% endblock %}

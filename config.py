@@ -30,6 +30,5 @@ class User(db.Model, UserMixin):
 
 class Resume(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(150), nullable=False)
     file_path = db.Column(db.String(300), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
