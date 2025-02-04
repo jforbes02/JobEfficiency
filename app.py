@@ -138,6 +138,20 @@ def upload_file():
 
     return render_template("edit_resume.html")
 
+@app.route("/delete_resume",  methods=['GET', 'POST'])
+@login_required
+def delete_file():
+    for filename in os.listdir(UPLOAD_FOLDER):
+        file_path = os.path.join(UPLOAD_FOLDER, filename)
+        try:
+            if os.path.isfile(file_path):
+                os.remove(file_path)
+                print(f"Deleted: {file_path}")
+        except OSError as e:
+            print(f"Error deleting {file_path}: {e}")
+    return render_template('resume.html', resume=None)
+
+
 with app.app_context():
     db.create_all()
 
