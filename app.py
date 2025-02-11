@@ -14,6 +14,7 @@ app.register_blueprint(job_bp)
 #uploads
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 if not os.path.exists(UPLOAD_FOLDER):
     os.makedirs(UPLOAD_FOLDER)
 
@@ -97,46 +98,38 @@ def resume():
     return render_template('resume.html', resume=None)
 
 @app.route('/edit_resume', methods=['GET', 'POST'])
+@login_required
 def edit_resume():
 
     if request.method == 'POST':
+
+        if 'file' not in request.files:
+            return "No file part", 400
+
         file = request.files['file']
-        if file and file.filename.endswith('.pdf'):
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-            file.save(file_path)
+        if file.filename == '':
+            return "No selected file", 400
+
+        if not file.filename.endswith('.pdf'):
+            flash( "Please upload a valid PDF file.", 'danger')
             return redirect(url_for('resume'))
-        else:
-            return "Please upload a valid PDF file.", 400
-    return render_template('edit_resume.html')
 
-
-@app.route('/upload', methods=['POST'])
-@login_required
-def upload_file():
-    if 'file' not in request.files:
-        return "No file part", 400
-
-    file = request.files['file']
-    if file.filename=='':
-        return "No selected file", 400
-
-    if file:
         filename = secure_filename(f"{current_user.id}_resume.pdf")
-        filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(filepath)
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        file.save(file_path)
 
         existing_resume = Resume.query.filter_by(user_id=current_user.id).first()
+
         if existing_resume:
-            existing_resume.filepath=filepath
+            existing_resume.filename=filename
+            existing_resume.filepath=file_path
         else:
-            new_resume = Resume(user_id=current_user.id, file_path=filepath)
+            new_resume = Resume(filename=filename, user_id=current_user.id, file_path=file_path)
             db.session.add(new_resume)
 
         db.session.commit()
-        flash("Success in resume upload", "success")
-        return redirect(url_for("resume"))
-
-    return render_template("edit_resume.html")
+        return redirect(url_for('resume'))
+    return render_template('edit_resume.html')
 
 @app.route("/delete_resume",  methods=['GET', 'POST'])
 @login_required
@@ -153,7 +146,9 @@ def delete_file():
 
 
 with app.app_context():
+    #db.drop_all()
     db.create_all()
+app.config['SQLALCHEMY_ECHO'] = True
 
 if __name__ == '__main__':
     app.run(debug=True)
