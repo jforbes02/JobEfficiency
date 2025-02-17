@@ -2,6 +2,8 @@ import os
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_login import login_required, login_user, current_user, logout_user, LoginManager
 from werkzeug.utils import send_from_directory, secure_filename
+from werkzeug.security import check_password_hash
+from werkzeug.security import generate_password_hash
 
 from config import JobApplication, User, db, Config, Resume
 from jobs import job_bp
@@ -45,7 +47,7 @@ def login():
         password = request.form['password']
 
         user = User.query.filter_by(email=email).first()
-        if user:
+        if user and check_password_hash(user.password, password):
             login_user(user)
             flash("Logged in successfully!", "success")
             return redirect(url_for("home"))
@@ -80,7 +82,9 @@ def registration():
             flash("Username or email exists!", "danger")
             return redirect(url_for("registration"))
 
-        new_user = User(username=username, email=email, password=password)
+        hashed_password = generate_password_hash(password)
+
+        new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
 
@@ -114,7 +118,9 @@ def edit_resume():
             flash( "Please upload a valid PDF file.", 'danger')
             return redirect(url_for('resume'))
 
+        #delete_file()
         filename = secure_filename(f"{current_user.id}_resume.pdf")
+
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
@@ -148,7 +154,6 @@ def delete_file():
 with app.app_context():
     #db.drop_all()
     db.create_all()
-app.config['SQLALCHEMY_ECHO'] = True
 
 if __name__ == '__main__':
     app.run(debug=True)

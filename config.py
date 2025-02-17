@@ -1,6 +1,7 @@
 #Database Work
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
 #configuration settings
 db = SQLAlchemy()
@@ -27,9 +28,15 @@ class User(db.Model, UserMixin):
     resumes = db.relationship('Resume', backref='user', lazy=True)
     applications = db.relationship('JobApplication', backref='user',lazy=True)
 
+    def set_password(self, password):
+        self.password = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+
 
 class Resume(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     filename = db.Column(db.String(50), nullable=False)
-    file_path = db.Column(db.String(50), nullable=False)
+    file_path = db.Column(db.String(200), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

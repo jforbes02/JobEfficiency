@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="First, found issues in login(any password allows for login)&#10;2nd- Worked on pdf file interaction and resume page&#10;&#10;3rd - learned if else statements in html so have been utilizing throughout the code!&#10;&#10;Great progress, also made some Resume database adjustments">
+    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Databases updated. Now resume database works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/edit_resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/edit_resume.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resume.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/track.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +69,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
+    "Flask server.Flask (app.py).executor": "Run",
     "Flask server.JobEfficiency.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -85,7 +86,23 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
+    <configuration name="Flask (app.py)" type="Python.FlaskServer" temporary="true" nameIsGenerated="true">
+      <module name="JobEfficiency" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
     <configuration name="JobEfficiency" type="Python.FlaskServer">
       <module name="JobEfficiency" />
       <option name="target" value="$PROJECT_DIR$/app.py" />
@@ -102,6 +119,11 @@
       <option name="launchJavascriptDebuger" value="false" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Flask server.Flask (app.py)" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -129,7 +151,7 @@
       <workItem from="1737312055388" duration="31762000" />
       <workItem from="1738105858027" duration="7375000" />
       <workItem from="1738250082313" duration="13994000" />
-      <workItem from="1738698674549" duration="11020000" />
+      <workItem from="1738698674549" duration="25251000" />
     </task>
     <task id="LOCAL-00001" summary="Learning HTML and CSS... going bad lol! Python code is a bit wonky too.... working on the html more tmmrw">
       <option name="closed" value="true" />
@@ -211,7 +233,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738700044511</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Databases updated. Now resume database works">
+      <option name="closed" value="true" />
+      <created>1739304948105</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1739304948105</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,9 +269,11 @@
     <MESSAGE value="Working on login and registration(did some work on templates working with logged in user. SQL databases are working. Registration works as well." />
     <MESSAGE value="First, found issues in login(any password allows for login)&#10;2nd- Worked on pdf file interaction and resume page&#10;&#10;3rd - learned if else statements in html so have been utilizing throughout the code!&#10;&#10;Great progress, also made some Resume database adjustments" />
     <MESSAGE value="Created a way to delete the file uploaded by user" />
-    <option name="LAST_COMMIT_MESSAGE" value="Created a way to delete the file uploaded by user" />
+    <MESSAGE value="Databases updated. Now resume database works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Databases updated. Now resume database works" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1739304914301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1739749697655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1739755399946" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
