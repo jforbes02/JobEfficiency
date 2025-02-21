@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for, session, flash
+from flask import Flask, render_template, request, redirect, url_for, session, flash, send_from_directory
 from flask_login import login_required, login_user, current_user, logout_user, LoginManager
 from werkzeug.utils import send_from_directory, secure_filename
 from werkzeug.security import check_password_hash
@@ -27,10 +27,7 @@ login_manager.init_app(app)
 
 @app.route('/jobs')
 def show_jobs():
-    jobs = [
-    {"id": 1, "title": "Software Engineer", "company": "Google", "status": "Applied"},
-    {"id": 2, "title": "Data Scientist", "company": "Facebook", "status": "Pending"},
-]
+
     return render_template('jobs.html', jobs=jobs)
 
 @app.route('/')
@@ -92,13 +89,17 @@ def registration():
         return render_template("login.html")
     return render_template("registration.html")
 
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 @app.route("/resume")
 @login_required
 def resume():
-    # Check if a resume file exists
-    resume_file = os.listdir(app.config['UPLOAD_FOLDER'])
-    if resume_file:
-        return render_template('resume.html', resume={'content': resume_file[0]})
+    user_resume = Resume.query.filter_by(user_id=current_user.id).first()
+    if user_resume:
+        file_url = url_for('uploaded_file', filename=user_resume.filename)
+        print(f"File saved to: {file_url}")
+        return render_template('resume.html', resume=user_resume, file_url=file_url)
     return render_template('resume.html', resume=None)
 
 @app.route('/edit_resume', methods=['GET', 'POST'])
@@ -106,14 +107,11 @@ def resume():
 def edit_resume():
 
     if request.method == 'POST':
-
         if 'file' not in request.files:
             return "No file part", 400
-
         file = request.files['file']
         if file.filename == '':
             return "No selected file", 400
-
         if not file.filename.endswith('.pdf'):
             flash( "Please upload a valid PDF file.", 'danger')
             return redirect(url_for('resume'))
@@ -140,14 +138,14 @@ def edit_resume():
 @app.route("/delete_resume",  methods=['GET', 'POST'])
 @login_required
 def delete_file():
-    for filename in os.listdir(UPLOAD_FOLDER):
-        file_path = os.path.join(UPLOAD_FOLDER, filename)
+    user_resume = Resume.query.filter_by(user_id=current_user.id).first()
+    if user_resume:
         try:
-            if os.path.isfile(file_path):
-                os.remove(file_path)
-                print(f"Deleted: {file_path}")
+            if os.path.isfile(user_resume.file_path):
+                os.remove(user_resume.file_path)
+                print(f"Deleted: {user_resume}")
         except OSError as e:
-            print(f"Error deleting {file_path}: {e}")
+            print(f"Error deleting {user_resume}: {e}")
     return render_template('resume.html', resume=None)
 
 

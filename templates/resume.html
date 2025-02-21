@@ -3,11 +3,11 @@
 {% block content %}
     <h1>Welcome, {{current_user.username}}</h1>
     {% if resume %}
-        <h2> - Your Resume -</h2>
+        <h2> - Your Resume - </h2>
         <p>
-            <embed src="{{ resume.filepath }}" type="application/pdf" frameborder="0" width="100%" height="600px">
+            <iframe src="{{ file_url }}" width="100%" height="600px" frameborder="0"></iframe>
         </p>
-        <p>{{ resume.content }}
+        <p>{{ resume.filename }}
         <a href="/edit_resume"><br>Edit Resume</a>
         <a href="/delete_resume"><br>Delete</a>
         </p>
