@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Embeding not done but I decided to change my attention to api! im cooked api is hard to understand and I have no idea if I am doing the correct thing, will be studying apis hard!">
-      <change afterPath="$PROJECT_DIR$/jobs/scraper.py" afterDir="false" />
+    <list default="true" id="f5da2835-89db-4bea-9cce-c8d912a25217" name="Changes" comment="Learning Selenium.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/scraper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/jobs.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/jobs.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +53,7 @@
   }
 }</component>
   <component name="HttpClientEndpointsTabState">
-    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;7286011daf01154e3202a1552356691b78d0ef66&quot; value=&quot;###&amp;#10;GET http://localhost:5000/uploads/{{filename}}&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
+    <option name="cachedRequestData" value="&lt;CachedHttpClientTabRequests&gt;&#10;  &lt;entry key=&quot;c74989e34b4b40ba617f592ce69845fbebcbbeb6&quot; value=&quot;###&amp;#10;GET http://localhost:5000/jobs&quot; /&gt;&#10;&lt;/CachedHttpClientTabRequests&gt;" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -87,7 +90,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.scraper">
+  <component name="RunManager" selected="Flask server.Flask (app.py)">
     <configuration name="scraper" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="JobEfficiency" />
       <option name="ENV_FILES" value="" />
@@ -145,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.scraper" />
         <item itemvalue="Flask server.Flask (app.py)" />
+        <item itemvalue="Python.scraper" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +183,7 @@
       <workItem from="1739900607048" duration="505000" />
       <workItem from="1740165495186" duration="7646000" />
       <workItem from="1740332271428" duration="3524000" />
-      <workItem from="1740353357803" duration="397000" />
+      <workItem from="1740353357803" duration="4503000" />
     </task>
     <task id="LOCAL-00001" summary="Learning HTML and CSS... going bad lol! Python code is a bit wonky too.... working on the html more tmmrw">
       <option name="closed" value="true" />
@@ -286,7 +289,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740179680691</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Learning Selenium.">
+      <option name="closed" value="true" />
+      <created>1740682133911</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1740682133911</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,11 +328,12 @@
     <MESSAGE value="Databases updated. Now resume database works" />
     <MESSAGE value="Passwords now work and are secured through werkzeug. Learning how to embed the actual pdf file onto the html page and be able to edit it through the page" />
     <MESSAGE value="Embeding not done but I decided to change my attention to api! im cooked api is hard to understand and I have no idea if I am doing the correct thing, will be studying apis hard!" />
-    <option name="LAST_COMMIT_MESSAGE" value="Embeding not done but I decided to change my attention to api! im cooked api is hard to understand and I have no idea if I am doing the correct thing, will be studying apis hard!" />
+    <MESSAGE value="Learning Selenium." />
+    <option name="LAST_COMMIT_MESSAGE" value="Learning Selenium." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/JobEfficiency$scraper.coverage" NAME="scraper Coverage Results" MODIFIED="1740178131333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jobs" />
-    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1739749697655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/JobEfficiency$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1739900610791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$scraper.coverage" NAME="scraper Coverage Results" MODIFIED="1740682432820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/jobs" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$JobEfficiency.coverage" NAME="JobEfficiency Coverage Results" MODIFIED="1740682442653" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/JobEfficiency$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1740770212720" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
