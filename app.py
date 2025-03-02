@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.secret_key="secret"
 app.config.from_object(Config)
 db.init_app(app)
-app.register_blueprint(job_bp)
+app.register_blueprint(job_bp, url_prefix='/api/jobs')
 
 #uploads
 UPLOAD_FOLDER = 'uploads'
@@ -27,7 +27,10 @@ login_manager.init_app(app)
 
 @app.route('/jobs')
 def show_jobs():
-
+    if current_user.is_authenticated:
+        jobs = JobApplication.query.filter_by(user_id=current_user.id).all()
+    else:
+        jobs = []
     return render_template('jobs.html', jobs=jobs)
 
 @app.route('/')

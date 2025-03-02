@@ -1,24 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="jobs-container">
+    <h1>Job Listings</h1>
 
-{% endblock %}
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Title</th>
-            <th>Company</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    {% for job in jobs %}
-    <tr>
-        <td>{{ job.id }}</td>
-        <td>{{ job.title }}</td>
-        <td>{{ job.company }}</td>
-        <td>{{ job.status }}</td>
-    </tr>
-    {% endfor %}
-{% endblock %}
+    <div class="search-options">
+        <a href="/jobfinder" class="search-button">Search for Jobs</a>
+        <p>Already applied to jobs? Track them below:</p>
+    </div>
 
-</table>
+    {% if jobs %}
+    <table class="jobs-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Company</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td>{{ job.title }}</td>
+                <td>{{ job.company }}</td>
+                <td>{{ job.status }}</td>
+                <td>
+                    <a href="#" class="action-link">View</a>
+                    <a href="#" class="action-link">Edit</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <div class="no-jobs">
+        <p>You haven't added any jobs to track yet.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
