@@ -5,7 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 #configuration settings
 db = SQLAlchemy()
-
+api_key = '84d0e54f25b14966446b1642c36fc13ae3fdd0cfb7bd8bc20a11522b9733e5ad'
 
 class Config:
     SQLALCHEMY_DATABASE_URI = 'sqlite:///tracker.db'
